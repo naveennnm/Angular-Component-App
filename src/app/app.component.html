@@ -1,0 +1,38 @@
+<!--The content below is only a placeholder and can be replaced. -->
+<div style="text-align:center">
+  <h1>
+    {{title}}
+  </h1>
+</div>
+
+<div>
+  <u>{{dataBindingVal}}</u>
+  <br />
+  Months :
+  <select>
+    <option *ngFor="let i of months">{{i}}</option>
+  </select>
+  <br />
+  <span *ngIf="isavailable">Condition is valid.</span>
+
+  <div>
+    <span *ngIf="isavailable; then condition1 else condition2">Condition is valid.</span>
+    <ng-template #condition1>Condition is valid</ng-template>
+    <ng-template #condition2>Condition is invalid</ng-template>
+  </div>
+  <div>
+    <u>{{eventBindingVal}}</u>
+  </div>
+  <button (click)="myClickFunction($event)">
+    Click Me
+  </button>
+  <br />
+  Months :
+  <select (change)="changemonthsListner($event.target.value)">
+    <option *ngFor="let i of months">{{i}}</option>
+  </select>
+  <br />
+  <div>
+    <u>{{selectedMonth}}</u>
+  </div>
+</div>
